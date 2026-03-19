@@ -29,6 +29,5 @@ Disallow: /
 User-agent: omgili
 Disallow: /
 
-# All other crawlers welcome
 User-agent: *
-Allow: /
+Disallow: /
