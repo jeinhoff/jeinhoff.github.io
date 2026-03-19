@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jan Einhoff</title>
-  <meta name="description" content="Jan Einhoff is a Research Scientist at the Max Planck Institute for Demographic Research, working on the extension of working lives, life course inequalities, and quantitative methods." />
+  <meta name="description" content="Jan Einhoff is a Research Scientist at the Max Planck Institute for Demographic Research, working on the extension of working lives, life course dynamics, and social stratification processes." />
   <meta property="og:title" content="Jan Einhoff — Research Scientist" />
-  <meta property="og:description" content="Researcher in social demography with a focus on the extension of working lives, life course inequalities, and quantitative methods." />
+  <meta property="og:description" content="Jan Einhoff is a Research Scientist at the Max Planck Institute for Demographic Research, working on the extension of working lives, life course dynamics, and social stratification processes." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jeinhoff.github.io" />
+  <meta property="og:image" content="https://jeinhoff.github.io/pic.jpg" />
   <link rel="canonical" href="https://jeinhoff.github.io" />
   <meta name="robots" content="noai, noimageai">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a3558'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='13' font-weight='500' fill='white'>JE</text></svg>" />
@@ -552,7 +554,7 @@
             <div class="pub-header">
               <div class="pub-year">2026</div>
               <div>
-                <div class="pub-title">Does occupational sex segregation contribute to sex disparities in the length of working life? Evidence from Germany and a new decomposition approach</div>
+                <div class="pub-title">Does occupational sex segregation contribute to sex disparities in the length of working life? Evidence from Germany and a novel decomposition approach</div>
                 <div class="pub-meta">Jan Einhoff</div>
                 <div class="pub-note" style="font-size:0.72rem; color:var(--ink-faint); margin-top:0.3rem;">Available upon request</div>
               </div>
@@ -563,7 +565,7 @@
             <div class="pub-header">
               <div class="pub-year">2026</div>
               <div>
-                <div class="pub-title">Does owning your home make you retire early? A comparative study for Germany and the United Kingdom using the parametric g-formula</div>
+                <div class="pub-title">Does owning your home make you retire early? A comparative study of Germany and the United Kingdom using the parametric g-formula</div>
                 <div class="pub-meta">Jan Einhoff</div>
                 <div class="pub-note" style="font-size:0.72rem; color:var(--ink-faint); margin-top:0.3rem;">Available upon request</div>
               </div>
@@ -1035,7 +1037,9 @@
     });
 
     document.getElementById("copy-year").textContent = new Date().getFullYear();
-    document.getElementById("last-updated").textContent = "Last updated March 2026";
+    var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    var now = new Date();
+    document.getElementById("last-updated").textContent = "Last updated " + months[now.getMonth()] + " " + now.getFullYear();
 
     requestAnimationFrame(function() { showPage("about"); });
 
