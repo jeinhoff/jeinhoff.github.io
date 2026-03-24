@@ -12,6 +12,51 @@
   <meta property="og:image" content="https://jeinhoff.github.io/pic.jpg" />
   <meta name="google-site-verification" content="2chS-pFEfDgkkmXAJPQSPLUUW9QUiufty8x8wJQkquM" />
   <meta name="robots" content="noai, noimageai">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jan Einhoff",
+    "url": "https://jeinhoff.github.io",
+    "image": "https://jeinhoff.github.io/pic.jpg",
+    "jobTitle": "Research Scientist",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Max Planck Institute for Demographic Research",
+      "url": "https://www.demogr.mpg.de"
+    },
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Max Planck Institute for Demographic Research"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Humboldt University of Berlin"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Università Bocconi"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Hertie School"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Mannheim"
+      }
+    ],
+    "knowsAbout": ["Working life expectancy", "Life course dynamics", "Social stratification", "Demography", "Causal inference"],
+    "sameAs": [
+      "https://orcid.org/0009-0000-2581-5861",
+      "https://scholar.google.com/citations?user=FSOmLHgAAAAJ&hl=de",
+      "https://www.linkedin.com/in/einhoff/",
+      "https://github.com/jeinhoff",
+      "https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/jan_einhoff_4556"
+    ]
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a3558'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='13' font-weight='500' fill='white'>JE</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,6 +128,7 @@
       position: absolute;
       inset: 0;
       overflow-y: scroll;
+      scroll-behavior: smooth;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease;
@@ -475,7 +521,7 @@
       <div class="about-layout">
 
         <div class="photo-col">
-          <img src="pic.jpg" alt="Jan Einhoff" />
+          <img src="pic.jpg" alt="Jan Einhoff" loading="lazy" />
         </div>
 
         <div class="bio-col">
@@ -1037,11 +1083,26 @@
     });
 
     document.getElementById("copy-year").textContent = new Date().getFullYear();
-    var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    var now = new Date();
-    document.getElementById("last-updated").textContent = "Last updated " + months[now.getMonth()] + " " + now.getFullYear();
+    document.getElementById("last-updated").textContent = "Last updated March 2026";
 
-    requestAnimationFrame(function() { showPage("about"); });
+    // Hash routing
+    function getPageFromHash() {
+      var hash = window.location.hash.replace("#", "");
+      var valid = ["about", "research", "presentations", "cv"];
+      return valid.indexOf(hash) !== -1 ? hash : "about";
+    }
+
+    window.addEventListener("hashchange", function() {
+      showPage(getPageFromHash(), true);
+    });
+
+    var _origShowPage = showPage;
+    showPage = function(id, fromHash) {
+      _origShowPage(id);
+      if (!fromHash) window.location.hash = id === "about" ? "" : id;
+    };
+
+    requestAnimationFrame(function() { showPage(getPageFromHash(), true); });
 
     // Fetch citation count from Semantic Scholar (free, no API key needed)
     fetch("https://api.semanticscholar.org/graph/v1/paper/DOI:10.1215/00703370-12472371?fields=citationCount")
