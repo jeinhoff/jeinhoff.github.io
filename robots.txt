@@ -30,4 +30,6 @@ User-agent: omgili
 Disallow: /
 
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://jeinhoff.github.io/sitemap.xml
