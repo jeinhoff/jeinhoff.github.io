@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(pandoc \"U:\\\\Documents\\\\projects\\\\robots_health\\\\Robots & Health Review, May 19th_JE.docx\" -o output.md)",
+      "PowerShell($src = \"U:\\\\Documents\\\\projects\\\\robots_health\\\\Robots & Health Review, May 19th_JE.docx\"; $dst = \"$env:TEMP\\\\robots_health_docx\"; if \\(Test-Path $dst\\) { Remove-Item $dst -Recurse -Force }; Expand-Archive $src $dst; Write-Host \"Done\")"
+    ]
+  }
+}
