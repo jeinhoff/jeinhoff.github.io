@@ -10,7 +10,10 @@
       "Bash(pdftotext -f 1 -l 2 cv_einhoff.pdf -)",
       "Bash(pdftotext cv_einhoff.pdf -)",
       "Bash(pdftotext -layout cv_einhoff.pdf -)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(python -c ' *)",
+      "Bash(python3 -c ' *)",
+      "PowerShell($d = [System.IO.File]::ReadAllBytes\\(\"U:\\\\Documents\\\\cv\\\\cv_einhoff.pdf\"\\); $s = [System.Text.Encoding]::Latin1.GetString\\($d\\); \"URI actions : \" + \\([regex]::Matches\\($s,'/URI'\\)\\).Count; \"NewWindow   : \" + \\([regex]::Matches\\($s,'/NewWindow'\\)\\).Count; \"Annots      : \" + \\([regex]::Matches\\($s,'/Annots'\\)\\).Count)"
     ]
   }
 }
