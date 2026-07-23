@@ -9,7 +9,8 @@
       "Bash(pdftotext -f 2 -l 3 cv_einhoff.pdf -)",
       "Bash(pdftotext -f 1 -l 2 cv_einhoff.pdf -)",
       "Bash(pdftotext cv_einhoff.pdf -)",
-      "Bash(pdftotext -layout cv_einhoff.pdf -)"
+      "Bash(pdftotext -layout cv_einhoff.pdf -)",
+      "Bash(git commit *)"
     ]
   }
 }
