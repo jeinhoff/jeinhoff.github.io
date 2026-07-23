@@ -3,7 +3,13 @@
     "allow": [
       "PowerShell(pandoc \"U:\\\\Documents\\\\projects\\\\robots_health\\\\Robots & Health Review, May 19th_JE.docx\" -o output.md)",
       "PowerShell($src = \"U:\\\\Documents\\\\projects\\\\robots_health\\\\Robots & Health Review, May 19th_JE.docx\"; $dst = \"$env:TEMP\\\\robots_health_docx\"; if \\(Test-Path $dst\\) { Remove-Item $dst -Recurse -Force }; Expand-Archive $src $dst; Write-Host \"Done\")",
-      "mcp__claude-in-chrome__navigate"
+      "mcp__claude-in-chrome__navigate",
+      "Bash(ls -la \"U:/Documents/cv\")",
+      "Bash(latexmk -pdf -interaction=nonstopmode cv_einhoff.tex)",
+      "Bash(pdftotext -f 2 -l 3 cv_einhoff.pdf -)",
+      "Bash(pdftotext -f 1 -l 2 cv_einhoff.pdf -)",
+      "Bash(pdftotext cv_einhoff.pdf -)",
+      "Bash(pdftotext -layout cv_einhoff.pdf -)"
     ]
   }
 }
