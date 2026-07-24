@@ -28,7 +28,12 @@
       "Bash(/Library/TeX/texbin/pdftotext cv_einhoff.pdf -)",
       "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=1 -dLastPage=1 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p1.png cv_einhoff.pdf)",
       "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=3 -dLastPage=3 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p3.png cv_einhoff.pdf)",
-      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=4 -dLastPage=4 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p4.png cv_einhoff.pdf)"
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=4 -dLastPage=4 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p4.png cv_einhoff.pdf)",
+      "Bash(latexmk -C cv_einhoff.tex)",
+      "Bash(pdflatex -interaction=nonstopmode -halt-on-error cv_einhoff.tex)",
+      "Bash(biber cv_einhoff)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=2 -dLastPage=2 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p2.png cv_einhoff.pdf)",
+      "Bash(git add *)"
     ]
   }
 }
