@@ -25,7 +25,10 @@
       "Bash(rm -f cv_einhoff.aux cv_einhoff.bcf cv_einhoff.run.xml)",
       "Bash(latexmk -pdf -bibtex- -interaction=nonstopmode -halt-on-error cv_einhoff.tex)",
       "Read(//usr/local/texlive/2026/bin/**)",
-      "Bash(/Library/TeX/texbin/pdftotext cv_einhoff.pdf -)"
+      "Bash(/Library/TeX/texbin/pdftotext cv_einhoff.pdf -)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=1 -dLastPage=1 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p1.png cv_einhoff.pdf)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=3 -dLastPage=3 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p3.png cv_einhoff.pdf)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=4 -dLastPage=4 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p4.png cv_einhoff.pdf)"
     ]
   }
 }
