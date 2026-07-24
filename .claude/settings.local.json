@@ -13,7 +13,19 @@
       "Bash(git commit *)",
       "Bash(python -c ' *)",
       "Bash(python3 -c ' *)",
-      "PowerShell($d = [System.IO.File]::ReadAllBytes\\(\"U:\\\\Documents\\\\cv\\\\cv_einhoff.pdf\"\\); $s = [System.Text.Encoding]::Latin1.GetString\\($d\\); \"URI actions : \" + \\([regex]::Matches\\($s,'/URI'\\)\\).Count; \"NewWindow   : \" + \\([regex]::Matches\\($s,'/NewWindow'\\)\\).Count; \"Annots      : \" + \\([regex]::Matches\\($s,'/Annots'\\)\\).Count)"
+      "PowerShell($d = [System.IO.File]::ReadAllBytes\\(\"U:\\\\Documents\\\\cv\\\\cv_einhoff.pdf\"\\); $s = [System.Text.Encoding]::Latin1.GetString\\($d\\); \"URI actions : \" + \\([regex]::Matches\\($s,'/URI'\\)\\).Count; \"NewWindow   : \" + \\([regex]::Matches\\($s,'/NewWindow'\\)\\).Count; \"Annots      : \" + \\([regex]::Matches\\($s,'/Annots'\\)\\).Count)",
+      "Bash(git fetch *)",
+      "Bash(ls -la /Users/jeinhoff/Documents/cv/)",
+      "Read(//Users/jeinhoff/Documents/consulting_bewerbungen/**)",
+      "Bash(pandoc -t markdown \"Einhoff_Lebenslauf.docx\")",
+      "Bash(which pandoc *)",
+      "Bash(python3 skills_merge.py)",
+      "Bash(python3 -)",
+      "Bash(grep -E \"^\\(latexmk|pdflatex|biber\\)$\")",
+      "Bash(rm -f cv_einhoff.aux cv_einhoff.bcf cv_einhoff.run.xml)",
+      "Bash(latexmk -pdf -bibtex- -interaction=nonstopmode -halt-on-error cv_einhoff.tex)",
+      "Read(//usr/local/texlive/2026/bin/**)",
+      "Bash(/Library/TeX/texbin/pdftotext cv_einhoff.pdf -)"
     ]
   }
 }
