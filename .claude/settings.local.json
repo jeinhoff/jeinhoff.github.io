@@ -33,7 +33,20 @@
       "Bash(pdflatex -interaction=nonstopmode -halt-on-error cv_einhoff.tex)",
       "Bash(biber cv_einhoff)",
       "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r120 -dFirstPage=2 -dLastPage=2 -sOutputFile=/private/tmp/claude-501/-Users-jeinhoff-Documents-jeinhoff-github-io/1cf47a7c-a9a1-4dc2-9580-8146a57d6c59/scratchpad/cv_p2.png cv_einhoff.pdf)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git -C /Users/jeinhoff/Documents/cv log --oneline -1)",
+      "Bash(git -C /Users/jeinhoff/Documents/cv remote get-url origin)",
+      "Bash(echo \"remote: $\\(git -C /Users/jeinhoff/Documents/cv remote get-url origin\\)\")",
+      "Bash(git -C /Users/jeinhoff/Documents/jeinhoff.github.io log --oneline -1)",
+      "Bash(git -C /Users/jeinhoff/Documents/jeinhoff.github.io remote get-url origin)",
+      "Bash(git -C /Users/jeinhoff/Documents/jeinhoff.github.io commit --amend -q -m ' *)",
+      "Bash(git -C /Users/jeinhoff/Documents/cv log --all --oneline)",
+      "Bash(git -C /Users/jeinhoff/Documents/jeinhoff.github.io log --all --oneline)",
+      "Bash(git -C /Users/jeinhoff/Documents/cv rev-parse --short HEAD)",
+      "Bash(git -C /Users/jeinhoff/Documents/cv rev-parse --short origin/main)",
+      "Bash(echo \"CV: local=$\\(git -C /Users/jeinhoff/Documents/cv rev-parse --short HEAD\\) origin=$\\(git -C /Users/jeinhoff/Documents/cv rev-parse --short origin/main || echo unknown\\)\")",
+      "Bash(git -C /Users/jeinhoff/Documents/jeinhoff.github.io rev-parse --short HEAD)",
+      "Bash(git -C /Users/jeinhoff/Documents/jeinhoff.github.io rev-parse --short origin/main)"
     ]
   }
 }
