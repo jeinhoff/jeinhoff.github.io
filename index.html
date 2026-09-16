@@ -143,8 +143,8 @@
     /* ── ABOUT PAGE ── */
     .about-layout {
       display: grid;
-      grid-template-columns: 220px 460px;
-      gap: 0 3.5rem;
+      grid-template-columns: 240px 460px;
+      gap: 0 2.5rem;
       padding: 4.5rem 0 3rem;
       align-items: start;
       height: fit-content;
@@ -158,14 +158,19 @@
       object-fit: cover;
       object-position: center 20%;
       display: block;
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .photo-credit {
+      font-size: 0.6rem; color: var(--ink-faint); font-weight: 300;
+      margin-top: 0.45rem; letter-spacing: 0.03em;
     }
 
     .bio-col {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 0.5rem;
+      padding-top: 0;
     }
 
     .hero-label {
@@ -530,8 +535,8 @@
         gap: 1.5rem 0;
         justify-items: center;
       }
-      .photo-col { width: 100%; display: flex; justify-content: center; }
-      .photo-col img { width: 140px; margin-top: 0; }
+      .photo-col { width: 100%; display: flex; flex-direction: column; align-items: center; }
+      .photo-col img { width: 155px; margin-top: 0; }
       .bio-col { width: 100%; }
       .hero-title-line { gap: 0.4rem; }
       .hero-name { font-size: 1.6rem; }
@@ -567,6 +572,7 @@
 
         <div class="photo-col">
           <img src="pic.jpg" alt="Jan Einhoff" loading="lazy" />
+          <p class="photo-credit">Credit: Erik Gross</p>
         </div>
 
         <div class="bio-col">
