@@ -65,10 +65,64 @@
   }
   </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%231a3558'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='13' font-weight='500' fill='white'>JE</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
+    /* DM Sans, self-hosted (SIL OFL, see fonts/OFL.txt). Rules as served by Google Fonts. */
+    /* latin-ext */
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/dm-sans-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url(fonts/dm-sans-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/dm-sans-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/dm-sans-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* latin-ext */
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(fonts/dm-sans-latin-ext.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url(fonts/dm-sans-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #ffffff;
@@ -529,6 +583,11 @@
       justify-content: center; align-items: center;
     }
     .modal-overlay.open { display: flex; }
+    .modal-box:focus { outline: none; }
+    .footer-link {
+      background: none; border: none; padding: 0; margin: 0;
+      font: inherit; color: inherit; cursor: pointer;
+    }
     .modal-box {
       background: var(--bg); max-width: 560px; width: 90%;
       max-height: 80vh; overflow-y: auto;
@@ -576,7 +635,7 @@
     <a class="nav-name" href="#about">Jan Einhoff</a>
     <div class="nav-center">
       <ul class="nav-links">
-        <li><a href="#about"         data-page="about" class="active">About</a></li>
+        <li><a href="#about"         data-page="about" class="active" aria-current="page">About</a></li>
         <li><a href="#research"      data-page="research">Research</a></li>
         <li><a href="#presentations" data-page="presentations">Talks &amp; Events</a></li>
         <li><a href="#teaching"      data-page="teaching">Teaching</a></li>
@@ -1261,10 +1320,10 @@
   </div>
 
   <!-- ── IMPRESSUM MODAL ── -->
-  <div class="modal-overlay" id="impressum-modal" onclick="closeImpressum(event)">
-    <div class="modal-box">
-      <button class="modal-close" onclick="document.getElementById('impressum-modal').classList.remove('open')" aria-label="Close">×</button>
-      <h2 style="margin-bottom:1.5rem;">Impressum</h2>
+  <div class="modal-overlay" id="impressum-modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="impressum-title" tabindex="-1">
+      <button type="button" class="modal-close" aria-label="Schlie&szlig;en">&times;</button>
+      <h2 id="impressum-title" style="margin-bottom:1.5rem;">Impressum</h2>
       <div class="impressum-block">
         <h3>Angaben gemäß § 5 DDG</h3>
         <p>Dr. Jan Einhoff<br>Max-Planck-Institut für demografische Forschung<br>Konrad-Zuse-Str. 1<br>18057 Rostock, Deutschland</p>
@@ -1283,7 +1342,7 @@
   <footer>
     <span>© Jan Einhoff</span>
     <span id="last-updated"></span>
-    <a href="javascript:void(0)" onclick="document.getElementById('impressum-modal').classList.add('open')" style="cursor:pointer; text-decoration:none; color:inherit;">Impressum</a>
+    <button type="button" class="footer-link" id="impressum-open" aria-haspopup="dialog">Impressum</button>
   </footer>
 
   <script>
@@ -1299,12 +1358,12 @@
 
     function showPage(id) {
       document.querySelectorAll(".page").forEach(function(p) { p.classList.remove("active"); });
-      document.querySelectorAll(".nav-links a").forEach(function(a) { a.classList.remove("active"); });
+      document.querySelectorAll(".nav-links a").forEach(function(a) { a.classList.remove("active"); a.removeAttribute("aria-current"); });
       var target = document.getElementById("page-" + id);
       target.classList.add("active");
       target.scrollTop = 0;
       var link = document.querySelector('.nav-links a[data-page="' + id + '"]');
-      if (link) { link.classList.add("active"); moveIndicator(link); }
+      if (link) { link.classList.add("active"); link.setAttribute("aria-current", "page"); moveIndicator(link); }
 
       // Re-trigger entrance animation on inner-wrap
       var wrap = target.querySelector(".inner-wrap");
@@ -1359,15 +1418,44 @@
     }
 
 
-    function closeImpressum(e) {
-      if (e.target === document.getElementById('impressum-modal')) {
-        document.getElementById('impressum-modal').classList.remove('open');
-      }
-    }
+    // Impressum dialog: focus moves in, stays in, and returns to the trigger on close
+    (function () {
+      var overlay = document.getElementById("impressum-modal");
+      var box = overlay.querySelector(".modal-box");
+      var background = document.querySelectorAll("nav, .pages, footer");
+      var returnTo = null;
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') document.getElementById('impressum-modal').classList.remove('open');
-    });
+      function open() {
+        returnTo = document.activeElement;
+        overlay.hidden = false;
+        overlay.classList.add("open");
+        background.forEach(function (el) { el.inert = true; });
+        box.focus();
+      }
+      function close() {
+        if (!overlay.classList.contains("open")) return;
+        overlay.classList.remove("open");
+        overlay.hidden = true;
+        background.forEach(function (el) { el.inert = false; });
+        if (returnTo) returnTo.focus();
+      }
+
+      document.getElementById("impressum-open").addEventListener("click", open);
+      box.querySelector(".modal-close").addEventListener("click", close);
+      overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
+      document.addEventListener("keydown", function (e) {
+        if (!overlay.classList.contains("open")) return;
+        if (e.key === "Escape") { close(); return; }
+        if (e.key !== "Tab") return;
+        var f = box.querySelectorAll("a[href], button:not([disabled])");
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && (document.activeElement === first || document.activeElement === box)) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      });
+    })();
 
     (function () {
       var d = new Date(document.lastModified);
