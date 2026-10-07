@@ -124,6 +124,8 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    button { -webkit-appearance: none; appearance: none; border-radius: 0; }
     :root {
       --bg: #ffffff;
       --ink: #0d0d0d;
@@ -417,7 +419,8 @@
       transition: color 0.2s; margin-top: 1rem;
     }
     .pdf-link:hover { color: var(--accent); }
-    .pub-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    /* row gap stays 1.5rem; the gap between buttons narrows only below ~1200px so rows fit on one line */
+    .pub-actions { display: flex; align-items: center; gap: 1.5rem min(1.5rem, 2vw); flex-wrap: wrap; }
 
     /* ── CV ── */
     .cv-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -626,8 +629,14 @@
       .hero-name { font-size: 1.6rem; }
       .profile-links { grid-template-columns: 1fr; }
       .inner-wrap { padding: 1.5rem 1.2rem 3rem; width: 100%; }
-      .cv-columns { grid-template-columns: 1fr; gap: 1.5rem; }
-      .pub-header { grid-template-columns: 2.2rem 1fr; gap: 1rem; }
+      .cv-columns { display: flex; flex-direction: column; gap: 0; }
+      .cv-columns > div:first-child { display: contents; }
+      .cv-download { order: 1; margin-top: 0; }
+      .pub-header { grid-template-columns: 1fr; gap: 0.3rem; }
+      .pub-year, .pub-year-date { min-width: 0; padding-top: 0; }
+      .pub-year:empty { display: none; }
+      .pub-actions { gap: 0.5rem; margin-top: 0.6rem; }
+      .pub-actions > .abstract-toggle, .pub-actions > .pdf-btn { margin-top: 0 !important; padding: 0.65rem 0.85rem; }
       footer { padding: 0.9rem 1.2rem; flex-direction: column; gap: 0.2rem; text-align: center; }
     }
   </style>
@@ -716,10 +725,11 @@
               <div class="pub-doi">DOI: <a href="https://doi.org/10.1215/00703370-12472371" target="_blank" rel="noopener noreferrer">10.1215/00703370-12472371</a></div>
               <div class="pub-actions">
                 <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                  <span class="arrow">▶</span> Abstract
+                  <span class="arrow">&#9654;&#xFE0E;</span> Abstract
                 </button>
-                <a href="https://www.niussp.org/education-work-economy/extending-working-lives-how-european-birth-cohorts-compare/" target="_blank" rel="noopener noreferrer" class="pdf-btn">N-IUSSP article</a>
-                <a href="https://www.demografische-forschung.org/artikel/2026/2/3" target="_blank" rel="noopener noreferrer" class="pdf-btn">Demografische Forschung article</a>
+                <a href="https://github.com/jeinhoff/wle_cohorts_replication_materials" target="_blank" rel="noopener noreferrer" class="pdf-btn">Replication materials</a>
+                <a href="https://www.niussp.org/education-work-economy/extending-working-lives-how-european-birth-cohorts-compare/" target="_blank" rel="noopener noreferrer" class="pdf-btn">N-IUSSP</a>
+                <a href="https://www.demografische-forschung.org/artikel/2026/2/3" target="_blank" rel="noopener noreferrer" class="pdf-btn">Demografische Forschung</a>
               </div>
               <div class="abstract-body" id="abstract-1">
                 <p>Across Europe, the extension of working lives has been a central policy goal for more than three decades. Working life expectancy (WLE) and working years lost (WYL) are well-suited demographic indicators for assessing a country&#8217;s progress toward achieving this goal. This article reviews all previous estimates of WLE and WYL for European countries and then uses the largest available micro-level dataset to estimate and project WLE and WYL for cohorts of men and women aged 55&#8211;64 and 65&#8211;74 in 21 European countries. The findings indicate that WLE has generally increased, most rapidly in Central and Eastern Europe and in Western Europe. Northern European countries reach the highest levels of WLE. However, country and gender differences remain large, especially when WLE is adjusted for working hours. Correlational analyses suggest that higher WLE has been gained primarily from successive birth cohorts losing fewer working years to retirement. Over the coming years, the remaining WYL to retirement and to inactivity among women will constitute the main barriers to the extension of working lives in Europe.</p>
@@ -742,7 +752,7 @@
                 <div class="pub-note">Available upon request</div>
                 <div class="pub-actions">
                   <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                    <span class="arrow">&#9654;</span> Abstract
+                    <span class="arrow">&#9654;&#xFE0E;</span> Abstract
                   </button>
                   <a href="https://github.com/jeinhoff/wle_regions_replication_materials" target="_blank" rel="noopener noreferrer" class="pdf-btn">Replication materials</a>
                   <a href="https://jeinhoff.shinyapps.io/wle-regions/" target="_blank" rel="noopener noreferrer" class="pdf-btn">Interactive maps</a>
@@ -762,7 +772,7 @@
                 <div class="pub-note">Available upon request</div>
                 <div class="pub-actions">
                   <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                    <span class="arrow">&#9654;</span> Abstract
+                    <span class="arrow">&#9654;&#xFE0E;</span> Abstract
                   </button>
                   <a href="https://github.com/jeinhoff/wle_healthy_replication_materials" target="_blank" rel="noopener noreferrer" class="pdf-btn">Replication materials</a>
                 </div>
@@ -782,7 +792,7 @@
                 <div class="pub-note">Available upon request</div>
                 <div class="pub-actions">
                   <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                    <span class="arrow">&#9654;</span> Abstract
+                    <span class="arrow">&#9654;&#xFE0E;</span> Abstract
                   </button>
                 </div>
                 <div class="abstract-body">
@@ -800,7 +810,7 @@
                 <div class="pub-note">Available upon request</div>
                 <div class="pub-actions">
                   <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                    <span class="arrow">&#9654;</span> Abstract
+                    <span class="arrow">&#9654;&#xFE0E;</span> Abstract
                   </button>
                 </div>
                 <div class="abstract-body">
@@ -818,7 +828,7 @@
                 <div class="pub-note">Available upon request</div>
                 <div class="pub-actions">
                   <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                    <span class="arrow">&#9654;</span> Abstract
+                    <span class="arrow">&#9654;&#xFE0E;</span> Abstract
                   </button>
                 </div>
                 <div class="abstract-body">
@@ -1211,7 +1221,7 @@
               <div class="pub-meta pub-meta-type"><span>MSc-level course &middot; with Philipp Dierker and Steffen Peters</span></div>
               <div class="pub-actions pub-actions-tight">
                 <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                  <span class="arrow">&#9654;</span> Course Description
+                  <span class="arrow">&#9654;&#xFE0E;</span> Course Description
                 </button>
               </div>
               <div class="abstract-body">
@@ -1230,10 +1240,10 @@
               <div class="pub-meta pub-meta-type"><span>PhD-level workshop</span></div>
               <div class="pub-actions pub-actions-tight">
                 <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">
-                  <span class="arrow">&#9654;</span> Course Description
+                  <span class="arrow">&#9654;&#xFE0E;</span> Course Description
                 </button>
                 <button class="abstract-toggle" onclick="toggleSlides(this)" aria-expanded="false">
-                  <span class="arrow">&#9654;</span> Slides
+                  <span class="arrow">&#9654;&#xFE0E;</span> Slides
                 </button>
                 <a href="https://github.com/jeinhoff/phds_foundations_causality" target="_blank" rel="noopener noreferrer" class="pdf-btn">Course materials</a>
               </div>
